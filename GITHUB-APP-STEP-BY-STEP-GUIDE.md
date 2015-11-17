@@ -20,7 +20,7 @@ Click on **Register Application**
 
 Once you've successfully created your GitHub App,
 copy the Client ID and Secret and save them as environment variables
-`GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` respectively
+`GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` respectively.
 
 ![github-auth-03-app](https://cloud.githubusercontent.com/assets/194400/11236484/fcf9c3a4-8dd1-11e5-8489-5c43781ac59b.png)
 
