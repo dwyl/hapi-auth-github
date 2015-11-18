@@ -2,12 +2,13 @@ var JWT = require('jsonwebtoken'); // session stored as a JWT cookie
 
 module.exports = function custom_handler(req, reply, tokens, profile) {
   if(profile) {
+    console.log(JSON.stringify(profile, null, 2));
     // extract the relevant data from Profile to store in JWT object
     var session = {
-      fistname : profile.name.givenName, // the person's first name e.g: Anita
-      image    : profile.image.url,      // profile image url
-      id       : profile.id,             // google+ id
-      exp      : Math.floor(new Date().getTime()/1000) + 7*24*60*60, // Epiry in seconds!
+      fistname : profile.name,          // the person's name e.g: Anita
+      image    : profile.avatar_url,    // profile image url
+      id       : profile.id,            // their github id
+      // exp      : Math.floor(new Date().getTime()/1000) + 7*24*60*60, // Epiry in seconds!
       agent    : req.headers['user-agent']
     }
     // create a JWT to set as the cookie:
