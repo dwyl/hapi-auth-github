@@ -42,6 +42,7 @@
     "nock": "^3.0.0",
     "nodemon": "^1.8.1",
     "pre-commit": "^1.1.1",
+    "redis-connection": "^4.0.0",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.2"
   }
