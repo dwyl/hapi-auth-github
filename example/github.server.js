@@ -1,7 +1,10 @@
-var assert = require('assert');
 require('env2')('.env');
-// console.log(process.env);
-var Hapi = require('hapi');
+var crypto      = require('crypto');    // http://nodejs.org/api/crypto.html
+var querystring = require('querystring'); // nodejs.org/api/querystring.html
+var hash        = crypto.createHash('sha256');
+var assert      = require('assert');
+var Hapi        = require('hapi');
+
 var server = new Hapi.Server();
 server.connection({
 	host: 'localhost',
@@ -9,14 +12,14 @@ server.connection({
 });
 
 var opts = {
-  REDIRECT_URL: '/googleauth',  // must match google app redirect URI
+  REDIRECT_URL: '/githubauth',  // must match google app redirect URI
   handler: require('./github_oauth_handler.js'), // your handler
-  scope: 'https://www.googleapis.com/auth/plus.profile.emails.read' // profile
+  scope: 'user' // get user's profile see: developer.github.com/v3/oauth/#scopes
 };
 
 var hapi_auth_google = require('../lib');
 
-server.register([{ register: require('../lib'), options:opts }], function (err) {
+server.register([{ register: hapi_auth_google, options:opts }], function (err) {
   // handle the error if the plugin failed to load:
   assert(!err, "FAILED TO LOAD PLUGIN!!! :-("); // fatal error
 });
@@ -25,9 +28,21 @@ server.route({
   method: 'GET',
   path: '/',
   handler: function(req, reply) {
-    var url = server.generate_google_oauth2_url();
-		var imgsrc = 'https://developers.google.com/accounts/images/sign-in-with-google.png';
-		var btn = '<a href="' + url +'"><img src="' +imgsrc +'" alt="Login With Google"></a>'
+    hash.update(Math.random().toString()).digest('hex');
+    console.log(hash);
+    var params = {
+      client_id : process.env.GITHUB_CLIENT_ID,
+      redirect_uri : 'http://localhost:8000/githubauth',
+      scope : 'repo',
+      state: hash
+    }
+    console.log(params);
+    var qs = querystring.stringify(params);
+    console.log(qs);
+    var url = 'https://github.com/login/oauth/authorize' + '?' + qs;
+    console.log(url);
+		var src = 'https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png';
+		var btn = '<a href="' + url + '"><img src="' + src + '" alt="Login With GitHub"></a>';
     reply(btn);
   }
 });
