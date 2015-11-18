@@ -102,7 +102,7 @@ server.register([{ register: require('hapi-auth-github'), options:opts }],
 + `REDIRECT_URL` - is the url (*endpoint*) where google will
 send the initial OAuth2 `code` to check your application is *real*.
 Make *sure* that the url is *identical* to the one you defined when
-setting up your app on GitHub
+setting up your app on GitHub. e.g: http://localhost:8000/githubauth
 (*section 2.2 in the step-by-step guide*)
 + `handler` - the handler you defined above in **step 4**
 which is your custom logic for GitHub auth enabled app.
@@ -115,3 +115,5 @@ which is your custom logic for GitHub auth enabled app.
 
 + Basics: https://developer.github.com/guides/basics-of-authentication
 + Intro to OAuth2: https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
++ GitHub OAuth Scopes: https://developer.github.com/v3/oauth/#scopes
+(*what you should ask to access on a person' GitHub account*)

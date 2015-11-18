@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/dwyl/hapi-auth-github#readme",
   "devDependencies": {
+    "aguid": "^1.0.4",
     "env2": "^2.0.4",
     "hapi": "^11.1.1",
     "hoek": "^3.0.4",
