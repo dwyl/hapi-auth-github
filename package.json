@@ -12,7 +12,7 @@
     "jshint": "./node_modules/jshint/bin/jshint -c .jshintrc --exclude-path .gitignore .",
     "spec": "node ./node_modules/tape/bin/tape ./test/*.test.js | node_modules/tap-spec/bin/cmd.js",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js",
-    "start": "PORT=8000 node_modules/.bin/nodemon example/github.server.js"
+    "start": "PORT=8000 node_modules/.bin/nodemon example/github_server.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "Easy",
     "Tested"
   ],
-  "author": "dwyl",
+  "author": "@rjmk + @nelsonic @dwyl",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/dwyl/hapi-auth-github/issues"
