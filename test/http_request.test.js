@@ -31,3 +31,20 @@ test('Attepmt to invoke REQUEST WITHOUT VALID callback funciton (ERROR CHECK)', 
     t.end();
   }
 })
+
+test('Force req.on("error") condition in http request', function(t) {
+  var options = {
+    hostname: '127.0.0.1', // gets over-written below if using HEROKU
+    port: 8000,        // also over-written below if using HEROKU
+    path: '/',
+    method: 'GET',   // e.g. GET, POST, DELETE for our CRUD
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+  REQUEST(options, function(error) {
+    // console.log(error);
+    t.ok(error.code === 'ECONNREFUSED', "*Wanted Error* Got "+error.code + " (as expected!)");
+    t.end();
+  });
+})
