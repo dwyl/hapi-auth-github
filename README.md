@@ -11,15 +11,25 @@
 ## Why?
 
 We use *GitHub* for ***all*** our coding projects and are building
-a tool to keep track of all these: https://github.com/dwyl/tudo
+a tool to keep track of all them: https://github.com/dwyl/tudo
 
 Given that other people will have projects that need GitHub Authentication,  
-we've separated our Auth code into this re-useable Hapi Plugin.
+we have *de-coupled* our OAuth code into this re-useable Hapi Plugin.
+
+## *What*?
+
+An easy-to-use Hapi.js plugin that gives you GitHub OAuth Authentication  
+in a few simple steps and has *human-readable*, maintained code.
+
+> Note: if you are new to Hapi check out:
+https://github.com/nelsonic/learn-hapi
 
 ## How?
 
-We are using the GitHub Auth Web Application flow:  
+If you're *new* to GitHub Authentication, and want to *understand* how it works, read the GitHub OAuth Web Application flow:  
 https://developer.github.com/v3/oauth/#web-application-flow
+
+*Or*, if you just need to get up and running *fast*, follow these simple steps:
 
 ### 1. Install `hapi-auth-github` from NPM
 
