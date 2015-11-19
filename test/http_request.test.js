@@ -16,7 +16,7 @@ test('Attepmt to invoke REQUEST WITHOUT http request options (ERROR CHECK)', fun
 test('Attepmt to invoke REQUEST WITHOUT VALID callback funciton (ERROR CHECK)', function(t) {
   try {
     var options = {
-      host: '127.0.0.1', // gets over-written below if using HEROKU
+      hostname: '127.0.0.1', // gets over-written below if using HEROKU
       port: 8000,        // also over-written below if using HEROKU
       path: '/',
       method: 'GET',   // e.g. GET, POST, DELETE for our CRUD
