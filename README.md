@@ -109,6 +109,16 @@ which is your custom logic for GitHub auth enabled app.
 + `scope` - these are the ***permissions*** your app is requesting.
 
 
+## Implementation Notes:
+
+To run the example you will need an extra environment variable:
+```sh
+GITHUB_CLIENT_ID=YourAppsClientId.apps.googleusercontent.com
+GITHUB_CLIENT_SECRET=SuperSecret
+BASE_URL=http://localhost:8000
+JWT_SECRET=EverythingisAwesome
+PORT=8000
+```
 
 
 ## Background Reading

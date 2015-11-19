@@ -1,7 +1,6 @@
 require('env2')('.env');
 var crypto      = require('crypto');    // http://nodejs.org/api/crypto.html
 var querystring = require('querystring'); // nodejs.org/api/querystring.html
-var hash        = crypto.createHash('sha256');
 var assert      = require('assert');
 var Hapi        = require('hapi');
 
@@ -17,9 +16,9 @@ var opts = {
   scope: 'user' // get user's profile see: developer.github.com/v3/oauth/#scopes
 };
 
-var hapi_auth_google = require('../lib');
+var hapi_auth_github = require('../lib');
 
-server.register([{ register: hapi_auth_google, options:opts }], function (err) {
+server.register([{ register: hapi_auth_github, options:opts }], function (err) {
   // handle the error if the plugin failed to load:
   assert(!err, "FAILED TO LOAD PLUGIN!!! :-("); // fatal error
 });
@@ -28,13 +27,11 @@ server.route({
   method: 'GET',
   path: '/',
   handler: function(req, reply) {
-    hash.update(Math.random().toString()).digest('hex');
-    console.log(hash);
     var params = {
       client_id : process.env.GITHUB_CLIENT_ID,
       redirect_uri : 'http://localhost:8000/githubauth',
       scope : 'repo',
-      state: hash
+      state: crypto.createHash('sha256').update(Math.random().toString()).digest('hex')
     }
     console.log(params);
     var qs = querystring.stringify(params);
