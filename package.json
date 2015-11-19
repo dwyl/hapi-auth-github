@@ -1,6 +1,6 @@
 {
   "name": "hapi-auth-github",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Quick & Simple GitHub Authentication for Hapi.js apps",
   "main": "lib/index.js",
   "directories": {

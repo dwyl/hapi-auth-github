@@ -21,6 +21,6 @@ module.exports = function custom_handler(req, reply, tokens, profile) {
     .state('token', token); // see: http://hapijs.com/tutorials/cookies
   }
   else {
-    return reply("Sorry, something went wrong, please try again.");
+    return reply("Sorry, something went wrong, please try again.").code(401);
   }
 }

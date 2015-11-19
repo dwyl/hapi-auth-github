@@ -3,7 +3,7 @@ var nock = require('nock');
 var dir  = __dirname.split('/')[__dirname.split('/').length-1];
 var file = dir + __filename.replace(__dirname, '') + " > ";
 
-var server = require('../example/github.server.js');
+var server = require('../example/github_server.js');
 
 test(file+'Visit / root url expect to see a link', function(t) {
   var options = {
@@ -18,17 +18,16 @@ test(file+'Visit / root url expect to see a link', function(t) {
 });
 
 // test a bad code does not crash the server!
-test(file+'/googleauth?code=oauth2codehere', function(t) {
+test.only(file+'GET /githubauth?code=oauth2codehere', function(t) {
   var options = {
     method: "GET",
-    url: "/googleauth?code=badcode"
+    url: "/githubauth?code=badcode"
   };
   server.inject(options, function(response) {
-    t.equal(response.statusCode, 200, "Server is working.");
+    t.equal(response.statusCode, 401, "Bad Code is Rejected (as expected)");
     t.ok(response.payload.indexOf('something went wrong') > -1,
-          'Got: '+response.payload + ' (As Expected)');
-    server.stop(function(){ });
-    t.end();
+          'Got: '+response.payload + ' (as expected)');
+    server.stop(function(){ t.end(); });
   });
 });
 
@@ -36,7 +35,7 @@ test(file+'/googleauth?code=oauth2codehere', function(t) {
 test(file+'Mock /googleauth?code=oauth2codehere', function(t) {
   // google oauth2 token request url:
   var fs = require('fs');
-  var token_fixture = fs.readFileSync('./test/fixtures/sample-auth-token.json');
+  var token_fixture = fs.readFileSync('./test/fixtures/sample_access_token.json');
   var nock = require('nock');
   var scope = nock('https://accounts.google.com')
             .persist() // https://github.com/pgte/nock#persist
