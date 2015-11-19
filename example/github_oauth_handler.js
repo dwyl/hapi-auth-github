@@ -17,7 +17,7 @@ module.exports = function custom_handler(req, reply, tokens, profile) {
     // Detailed Example...? https://github.com/dwyl/hapi-auth-google/issues/2
 
     // reply to client with a view
-    return reply("Hello " +profile.name + " You Logged in Using GitHub!")
+    return reply("Hello " +profile.name + ", You Logged in Using GitHub!")
     .state('token', token); // see: http://hapijs.com/tutorials/cookies
   }
   else {
