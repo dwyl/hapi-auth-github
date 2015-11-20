@@ -57,9 +57,9 @@ test(file+'MOCK GitHub OAuth2 Flow /githubauth?code=mockcode', function(t) {
     t.equal(response.statusCode, 200, "Profile retrieved (Mock)");
     var expected = 'Hello Alex, You Logged in Using GitHub!';
     t.equal(response.payload, expected, "Got: " + expected + " (as expected)");
-    console.log(' - - - - - - - - - - - - - - - - - -');
-    console.log(response.payload);
-    console.log(' - - - - - - - - - - - - - - - - - -');
+    // console.log(' - - - - - - - - - - - - - - - - - -');
+    // console.log(response.payload);
+    // console.log(' - - - - - - - - - - - - - - - - - -');
     server.stop(t.end);
   });
 });
