@@ -12,7 +12,7 @@ server.connection({
 var opts = {
   REDIRECT_URL: '/githubauth',  // must match google app redirect URI
   handler: require('./github_oauth_handler.js'), // your handler
-  scope: 'user' // get user's profile see: developer.github.com/v3/oauth/#scopes
+  SCOPE: 'user' // get user's profile see: developer.github.com/v3/oauth/#scopes
 };
 
 var hapi_auth_github = require('../lib');
