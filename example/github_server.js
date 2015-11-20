@@ -1,5 +1,4 @@
 require('env2')('.env');
-var crypto      = require('crypto');    // http://nodejs.org/api/crypto.html
 var querystring = require('querystring'); // nodejs.org/api/querystring.html
 var assert      = require('assert');
 var Hapi        = require('hapi');
@@ -27,16 +26,7 @@ server.route({
   method: 'GET',
   path: '/',
   handler: function(req, reply) {
-    var params = {
-      client_id : process.env.GITHUB_CLIENT_ID,
-      redirect_uri : 'http://localhost:8000/githubauth',
-      scope : 'repo',
-      state: crypto.createHash('sha256').update(Math.random().toString()).digest('hex')
-    }
-    console.log(params);
-    var qs = querystring.stringify(params);
-    console.log(qs);
-    var url = 'https://github.com/login/oauth/authorize' + '?' + qs;
+		var url = hapi_auth_github.login_url();
     console.log(url);
 		var src = 'https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png';
 		var btn = '<a href="' + url + '"><img src="' + src + '" alt="Login With GitHub"></a>';
