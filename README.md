@@ -93,9 +93,9 @@ declaring your desired options:
 ```js
 // declare your desired options for the plugin
 var opts = {
-  REDIRECT_URL: '/googleauth', // must match google app redirect URI from step 2.8
-  handler: require('./google_oauth_handler.js'), // your handler
-  scope: 'https://www.googleapis.com/auth/plus.profile.emails.read' // ask for their email address
+  REDIRECT_URL: '/githubauth', // must match google app redirect URI from step 2.8
+  handler: require('./github_oauth_handler.js'), // your handler
+  scope: 'user' // ask for their public email address
 };
 
 server.register([{ register: require('hapi-auth-github'), options:opts }],
