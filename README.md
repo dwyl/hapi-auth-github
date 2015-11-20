@@ -85,6 +85,9 @@ see: [**sample-auth-token.json**](https://github.com/dwyl/hapi-auth-github/blob/
 + ***profile*** is the person's Google Plus profile
 see: [**sample-profile.json**](https://github.com/dwyl/hapi-auth-github/blob/master/test/fixtures/sample-profile.json)
 
+> For an *example* custom_handler, see:
+[example/**github_oauth_handler.js**](https://github.com/dwyl/hapi-auth-github/blob/605c9d59f6d26cbfbd2fbcf932fa9efb78d4aa5f/example/github_oauth_handler.js#L3)
+
 ### 5. Register the Plugin into your Hapi.js Server
 
 The final step is to register the plugin into your Hapi.js Server
