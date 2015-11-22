@@ -1,4 +1,4 @@
-# hapi auth *github* <small>lets you</small> <img width="300" alt="login with google" src="https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png">
+# hapi auth *github* <small>lets you</small> <img width="300" alt="login with github" src="https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png">
 
 **GitHub Authentication** Plugin for Hapi.js Apps with ***detailed documentation***.
 
@@ -46,15 +46,15 @@ Follow the instructions in:
 
 ### 3. Export the *Required* Environment Variables
 
-Once you've created your app following the [*GOOGLE-APP-STEP-BY-STEP-GUIDE*](https://github.com/dwyl/hapi-auth-github/blob/master/CREATE-GOOGLE-APP-STEP-BY-STEP-GUIDE.md)
+Once you've created your app following the [*GitHub App Step-by-Step Guide*](https://github.com/dwyl/hapi-auth-github/blob/master/GITHUB-APP-STEP-BY-STEP-GUIDE.md)
 
 Export the Environment Variables:
 ```sh
-GITHUB_CLIENT_ID=YourAppsClientId.apps.googleusercontent.com
+GITHUB_CLIENT_ID=YourGitHubClientIDE
 GITHUB_CLIENT_SECRET=SuperSecret
 BASE_URL=http://localhost:8000 # same as Authorized JavaScript Origin
 ```
-We export the two variables prefixed with `GOOGLE_`
+We export the two variables prefixed with `GITHUB_`
 to distinguish them from other services you may be using.
 
 The `BASE_URL` is required to know which url your app is using.
@@ -68,7 +68,7 @@ see: [https://github.com/dwyl/**learn-environment-variables**](https://github.co
 ### 4. Create Your (Custom) Handler Function
 
 This is where you decide what to do with the person's `profile` details  
-once they have authorized your App to use Google details.
+once they have authorized your App to use their GitHub details.
 
 Your custom handler should have the following signature:
 ```js
@@ -82,7 +82,7 @@ The handler function parameters are:
 + **reply** is the standard hapi reply object used to send your response to the client or send a rendered view.
 + ***tokens*** are the OAuth2 tokens returned by GitHub for the session
 see: [**sample-auth-token.json**](https://github.com/dwyl/hapi-auth-github/blob/master/test/fixtures/sample-auth-token.json)
-+ ***profile*** is the person's Google Plus profile
++ ***profile*** is the person's GitHub profile
 see: [**sample-profile.json**](https://github.com/dwyl/hapi-auth-github/blob/master/test/fixtures/sample-profile.json)
 
 > For an *example* custom_handler, see:
@@ -96,7 +96,7 @@ declaring your desired options:
 ```js
 // declare your desired options for the plugin
 var opts = {
-  REDIRECT_URL: '/githubauth', // must match google app redirect URI from step 2.8
+  REDIRECT_URL: '/githubauth', // must match GitHub app redirect URI from step 2.8
   handler: require('./github_oauth_handler.js'), // your handler
   scope: 'user' // ask for their public email address
 };
@@ -112,7 +112,7 @@ server.register([{ register: require('hapi-auth-github'), options:opts }],
 
 #### `options` *explained*
 
-+ `REDIRECT_URL` - is the url (*endpoint*) where google will
++ `REDIRECT_URL` - is the url (*endpoint*) where GitHub will
 send the initial OAuth2 `code` to check your application is *real*.
 Make *sure* that the url is *identical* to the one you defined when
 setting up your app on GitHub. e.g: http://localhost:8000/githubauth
@@ -126,7 +126,7 @@ which is your custom logic for GitHub auth enabled app.
 
 To run the example you will need an extra environment variable:
 ```sh
-GITHUB_CLIENT_ID=YourAppsClientId.apps.googleusercontent.com
+GITHUB_CLIENT_ID=YourGitHubAppClientId
 GITHUB_CLIENT_SECRET=SuperSecret
 BASE_URL=http://localhost:8000
 JWT_SECRET=EverythingisAwesome
