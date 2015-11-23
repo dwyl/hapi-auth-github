@@ -22,7 +22,7 @@ An easy-to-use Hapi.js plugin that gives you GitHub OAuth Authentication
 in a few simple steps and has *human-readable*, maintained code.
 
 > Note: if you are new to Hapi check out:
-https://github.com/nelsonic/learn-hapi
+https://github.com/dwyl/learn-hapi
 
 ## How?
 
