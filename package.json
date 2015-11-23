@@ -35,16 +35,16 @@
   "devDependencies": {
     "aguid": "^1.0.4",
     "env2": "^2.0.4",
-    "hapi": "^11.1.1",
+    "hapi": "^11.1.2",
     "hoek": "^3.0.4",
     "istanbul": "^0.4.0",
     "jshint": "^2.8.0",
     "jsonwebtoken": "^5.4.1",
-    "nock": "^3.0.0",
+    "nock": "^3.2.0",
     "nodemon": "^1.8.1",
-    "pre-commit": "^1.1.1",
+    "pre-commit": "^1.1.2",
     "redis-connection": "^4.0.0",
-    "tap-spec": "^4.1.0",
+    "tap-spec": "^4.1.1",
     "tape": "^4.2.2"
   }
 }
