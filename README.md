@@ -1,4 +1,4 @@
-# hapi auth *github* <small>lets you</small> <img width="300" alt="login with github" src="https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png">
+# `hapi-auth-github` makes it *easy* to <img width="300" alt="login with github" src="https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png">
 
 **GitHub Authentication** Plugin for Hapi.js Apps with ***detailed documentation***.
 

@@ -1,6 +1,6 @@
 {
   "name": "hapi-auth-github",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Quick & Simple GitHub Authentication for Hapi.js apps",
   "main": "lib/index.js",
   "directories": {
@@ -22,11 +22,13 @@
     "GitHub",
     "Auth",
     "Authentication",
+    "OAuth2",
     "Simple",
     "Easy",
-    "Tested"
+    "Tested",
+    "Painless"
   ],
-  "author": "@rjmk + @nelsonic @dwyl",
+  "author": "@rjmk & @nelsonic @dwyl",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/dwyl/hapi-auth-github/issues"
@@ -34,15 +36,15 @@
   "homepage": "https://github.com/dwyl/hapi-auth-github#readme",
   "devDependencies": {
     "env2": "^2.0.4",
-    "hapi": "^11.1.2",
+    "hapi": "^13.0.0",
     "hoek": "^3.0.4",
-    "istanbul": "^0.4.0",
-    "jsonwebtoken": "^5.4.1",
-    "nock": "^3.2.0",
+    "istanbul": "^0.4.2",
+    "jsonwebtoken": "^5.5.4",
+    "nock": "^7.0.2",
     "nodemon": "^1.8.1",
     "pre-commit": "^1.1.2",
-    "redis-connection": "^4.0.0",
+    "redis-connection": "^4.0.1",
     "tap-spec": "^4.1.1",
-    "tape": "^4.2.2"
+    "tape": "^4.4.0"
   }
 }
