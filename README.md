@@ -53,6 +53,8 @@ Export the Environment Variables:
 GITHUB_CLIENT_ID=YourGitHubClientIDE
 GITHUB_CLIENT_SECRET=SuperSecret
 BASE_URL=http://localhost:8000 # same as Authorized JavaScript Origin
+PORT=8000
+JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
 ```
 We export the two variables prefixed with `GITHUB_`
 to distinguish them from other services you may be using.
@@ -63,7 +65,9 @@ that you set in step 2.8 above.
 
 > Note: If you (*or anyone on your team*) are new to
 Environment Variables or need a refresher,  
-see: [https://github.com/dwyl/**learn-environment-variables**](https://github.com/dwyl/learn-environment-variables)
+see: [https://github.com/dwyl/**learn-environment-variables**](https://github.com/dwyl/learn-environment-variables)  
+> Also, if you're wondering what that `JWT_SECRET` *Environment Variables* is for,  
+see: [https://github.com/dwyl/**learn-json-web-tokens**](https://github.com/dwyl/learn-json-web-tokens)
 
 ### 4. Create Your (Custom) Handler Function
 
