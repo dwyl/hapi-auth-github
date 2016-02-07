@@ -50,7 +50,7 @@ Once you've created your app following the [*GitHub App Step-by-Step Guide*](htt
 
 Export the Environment Variables:
 ```sh
-GITHUB_CLIENT_ID=YourGitHubClientIDE
+GITHUB_CLIENT_ID=YourGitHubClientID
 GITHUB_CLIENT_SECRET=SuperSecret
 BASE_URL=http://localhost:8000 # same as Authorized JavaScript Origin
 PORT=8000
@@ -71,7 +71,7 @@ see: [https://github.com/dwyl/**learn-json-web-tokens**](https://github.com/dwyl
 
 ### 4. Create Your (Custom) Handler Function
 
-This is where you decide what to do with the person's `profile` details  
+This is where you *decide* what to do with the person's `profile` details  
 once they have authorized your App to use their GitHub details.
 
 Your custom handler should have the following signature:
@@ -128,7 +128,7 @@ which is your custom logic for GitHub auth enabled app.
 
 ## Implementation Notes:
 
-To run the example you will need an extra environment variable:
+To run the *example* you will need an extra environment variable:
 ```sh
 GITHUB_CLIENT_ID=YourGitHubAppClientId
 GITHUB_CLIENT_SECRET=SuperSecret
@@ -136,6 +136,11 @@ BASE_URL=http://localhost:8000
 JWT_SECRET=EverythingisAwesome
 PORT=8000
 ```
+
+If you would like to help *contribute* to this module,
+please get in touch:
+[![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 
 ## Background Reading
