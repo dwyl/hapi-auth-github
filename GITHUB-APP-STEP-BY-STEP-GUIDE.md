@@ -2,9 +2,9 @@
 
 ## 1 - Open Your GitHub Account Settings
 
-> Visit: https://github.com/settings/applications
+> Visit: https://github.com/settings/developers
 
-![github-auth-01-register-new-app](https://cloud.githubusercontent.com/assets/194400/11220972/7cb87f72-8d5a-11e5-9990-e298cdbc5a79.png)
+![github-auth-01-register-new-app](https://cloud.githubusercontent.com/assets/12045918/19191651/4ae8c678-8c9b-11e6-9a10-12c8a5d30999.png)
 
 ## 2 - Define the details for your applications
 
