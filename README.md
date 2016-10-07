@@ -102,7 +102,7 @@ declaring your desired options:
 var opts = {
   REDIRECT_URL: '/githubauth', // must match GitHub app redirect URI from step 2.8
   handler: require('./github_oauth_handler.js'), // your handler
-  scope: 'user' // ask for their public email address
+  SCOPE: 'user' // ask for their public email address
 };
 
 server.register([{ register: require('hapi-auth-github'), options:opts }],
@@ -123,7 +123,7 @@ setting up your app on GitHub. e.g: http://localhost:8000/githubauth
 (*section 2.2 in the step-by-step guide*)
 + `handler` - the handler you defined above in **step 4**
 which is your custom logic for GitHub auth enabled app.
-+ `scope` - these are the ***permissions*** your app is requesting.
++ `SCOPE` - these are the ***permissions*** your app is requesting.
 
 
 ## Implementation Notes:
