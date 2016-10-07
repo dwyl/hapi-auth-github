@@ -3,7 +3,7 @@
 **GitHub Authentication** Plugin for Hapi.js Apps with ***detailed documentation***.
 
 [![Build Status](https://travis-ci.org/dwyl/hapi-auth-github.svg)](https://travis-ci.org/dwyl/hapi-auth-github)
-[![codecov.io](https://codecov.io/github/dwyl/hapi-auth-github/coverage.svg?branch=master)](https://codecov.io/github/dwyl/hapi-auth-github?branch=master)
+[![Test Coverage](https://img.shields.io/codecov/c/github/dwyl/hapi-auth-github.svg?maxAge=2592000)](https://codecov.io/github/dwyl/hapi-auth-github?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/hapi-auth-github/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-auth-github)
 [![Dependency Status](https://david-dm.org/dwyl/hapi-auth-github.svg)](https://david-dm.org/dwyl/hapi-auth-github)
 [![devDependency Status](https://david-dm.org/dwyl/hapi-auth-github/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-github#info=devDependencies)
