@@ -3,7 +3,7 @@
 **GitHub Authentication** Plugin for Hapi.js Apps with ***detailed documentation***.
 
 [![Build Status](https://travis-ci.org/dwyl/hapi-auth-github.svg)](https://travis-ci.org/dwyl/hapi-auth-github)
-[![codecov.io](https://codecov.io/github/dwyl/hapi-auth-github/coverage.svg?branch=master)](https://codecov.io/github/dwyl/hapi-auth-github?branch=master)
+[![Test Coverage](https://img.shields.io/codecov/c/github/dwyl/hapi-auth-github.svg?maxAge=2592000)](https://codecov.io/github/dwyl/hapi-auth-github?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/hapi-auth-github/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-auth-github)
 [![Dependency Status](https://david-dm.org/dwyl/hapi-auth-github.svg)](https://david-dm.org/dwyl/hapi-auth-github)
 [![devDependency Status](https://david-dm.org/dwyl/hapi-auth-github/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-github#info=devDependencies)
@@ -85,9 +85,9 @@ The handler function parameters are:
 + **request** is the hapi request object with all the properties.
 + **reply** is the standard hapi reply object used to send your response to the client or send a rendered view.
 + ***tokens*** are the OAuth2 tokens returned by GitHub for the session
-see: [**sample-auth-token.json**](https://github.com/dwyl/hapi-auth-github/blob/master/test/fixtures/sample-auth-token.json)
+see: [**sample_auth_token.json**](https://github.com/dwyl/hapi-auth-github/blob/master/test/fixtures/sample-auth-token.json)
 + ***profile*** is the person's GitHub profile
-see: [**sample-profile.json**](https://github.com/dwyl/hapi-auth-github/blob/master/test/fixtures/sample-profile.json)
+see: [**sample_profile.json**](https://github.com/dwyl/hapi-auth-github/blob/master/test/fixtures/sample-profile.json)
 
 > For an *example* custom_handler, see:
 [example/**github_oauth_handler.js**](https://github.com/dwyl/hapi-auth-github/blob/605c9d59f6d26cbfbd2fbcf932fa9efb78d4aa5f/example/github_oauth_handler.js#L3)
