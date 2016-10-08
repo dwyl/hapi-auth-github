@@ -53,6 +53,7 @@ Export the Environment Variables:
 GITHUB_CLIENT_ID=YourGitHubClientID
 GITHUB_CLIENT_SECRET=SuperSecret
 BASE_URL=http://localhost:8000 # same as Authorized JavaScript Origin
+REDIRECT_URL=/githubauth
 PORT=8000
 JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
 ```
@@ -61,7 +62,12 @@ to distinguish them from other services you may be using.
 
 The `BASE_URL` is required to know which url your app is using.
 it needs to be identical to the `Authorized JavaScript Origin`
-that you set in step 2.8 above.
+that you set in step 2 above.
+
+The `REDIRECT_URL` is the url (*endpoint*) where GitHub will
+send the initial OAuth2 `code` to check your application is *real*.
+Make *sure* that the url is *identical* to the one you defined when
+setting up your app on GitHub. e.g: http://localhost:8000/githubauth
 
 > Note: If you (*or anyone on your team*) are new to
 Environment Variables or need a refresher,  
@@ -100,7 +106,6 @@ declaring your desired options:
 ```js
 // declare your desired options for the plugin
 var opts = {
-  REDIRECT_URL: '/githubauth', // must match GitHub app redirect URI from step 2.8
   handler: require('./github_oauth_handler.js'), // your handler
   scope: 'user' // ask for their public email address
 };
@@ -116,11 +121,6 @@ server.register([{ register: require('hapi-auth-github'), options:opts }],
 
 #### `options` *explained*
 
-+ `REDIRECT_URL` - is the url (*endpoint*) where GitHub will
-send the initial OAuth2 `code` to check your application is *real*.
-Make *sure* that the url is *identical* to the one you defined when
-setting up your app on GitHub. e.g: http://localhost:8000/githubauth
-(*section 2.2 in the step-by-step guide*)
 + `handler` - the handler you defined above in **step 4**
 which is your custom logic for GitHub auth enabled app.
 + `scope` - these are the ***permissions*** your app is requesting.
@@ -133,6 +133,7 @@ To run the *example* you will need an extra environment variable:
 GITHUB_CLIENT_ID=YourGitHubAppClientId
 GITHUB_CLIENT_SECRET=SuperSecret
 BASE_URL=http://localhost:8000
+REDIRECT_URL=/githubauth
 JWT_SECRET=EverythingisAwesome
 PORT=8000
 ```
@@ -140,7 +141,6 @@ PORT=8000
 If you would like to help *contribute* to this module,
 please get in touch:
 [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 
 
 ## Background Reading
