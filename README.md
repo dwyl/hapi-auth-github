@@ -107,7 +107,7 @@ declaring your desired options:
 // declare your desired options for the plugin
 var opts = {
   handler: require('./github_oauth_handler.js'), // your handler
-  scope: 'user' // ask for their public email address
+  SCOPE: 'user' // ask for their public email address
 };
 
 server.register([{ register: require('hapi-auth-github'), options:opts }],
@@ -123,7 +123,7 @@ server.register([{ register: require('hapi-auth-github'), options:opts }],
 
 + `handler` - the handler you defined above in **step 4**
 which is your custom logic for GitHub auth enabled app.
-+ `scope` - these are the ***permissions*** your app is requesting.
++ `SCOPE` - these are the ***permissions*** your app is requesting.
 
 
 ## Implementation Notes:
