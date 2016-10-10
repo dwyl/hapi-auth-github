@@ -4,10 +4,10 @@
 
 [![Build Status](https://travis-ci.org/dwyl/hapi-auth-github.svg)](https://travis-ci.org/dwyl/hapi-auth-github)
 [![Test Coverage](https://img.shields.io/codecov/c/github/dwyl/hapi-auth-github.svg?maxAge=2592000)](https://codecov.io/github/dwyl/hapi-auth-github?branch=master)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg)](https://github.com/dwyl/goodparts)
 [![Code Climate](https://codeclimate.com/github/dwyl/hapi-auth-github/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-auth-github)
 [![Dependency Status](https://david-dm.org/dwyl/hapi-auth-github.svg)](https://david-dm.org/dwyl/hapi-auth-github)
-[![devDependency Status](https://david-dm.org/dwyl/hapi-auth-github/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-github#info=devDependencies)
-
+[![devDependencies Status](https://david-dm.org/dwyl/hapi-auth-github/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-github?type=dev)
 ## Why?
 
 We use *GitHub* for ***all*** our coding projects and are building
@@ -15,6 +15,10 @@ a tool to keep track of all them: https://github.com/dwyl/tudo
 
 Given that other people will have projects that need GitHub Authentication,  
 we have *de-coupled* our OAuth code into this re-useable Hapi Plugin.
+
+> If you have _any_ questions or would like to *contribute* to this module,
+please get in touch:
+[![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## *What*?
 
@@ -50,30 +54,33 @@ Once you've created your app following the [*GitHub App Step-by-Step Guide*](htt
 
 Export the Environment Variables:
 ```sh
+BASE_URL=http://localhost:8000 # same as Authorized JavaScript Origin
 GITHUB_CLIENT_ID=YourGitHubClientID
 GITHUB_CLIENT_SECRET=SuperSecret
-BASE_URL=http://localhost:8000 # same as Authorized JavaScript Origin
-REDIRECT_URL=/githubauth
+GITHUB_AUTH_REDIRECT_URL=/githubauth
 PORT=8000
+# Optionally (If you are using hapi-auth-jwt2)
 JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
 ```
-We export the two variables prefixed with `GITHUB_`
-to distinguish them from other services you may be using.
+#### Notes on Environment Variables:
+
+> Tip: If you (*or anyone on your team*) are new to
+Environment Variables or need a refresher,  
+see: [https://github.com/dwyl/**learn-environment-variables**](https://github.com/dwyl/learn-environment-variables)  
+
+We named/exportd the 3 variables prefixed with `GITHUB_`
+to _distinguish_ them from other services you may be using which
+may also have an environment variable named `CLIENT_ID`...
 
 The `BASE_URL` is required to know which url your app is using.
 it needs to be identical to the `Authorized JavaScript Origin`
 that you set in step 2 above.
 
-The `REDIRECT_URL` is the url (*endpoint*) where GitHub will
-send the initial OAuth2 `code` to check your application is *real*.
+The `GITHUB_AUTH_REDIRECT_URL` is the url (*endpoint*) where GitHub will
+send the initial OAuth2 `code` to _confirm_ your application is *real*.
 Make *sure* that the url is *identical* to the one you defined when
 setting up your app on GitHub. e.g: http://localhost:8000/githubauth
 
-> Note: If you (*or anyone on your team*) are new to
-Environment Variables or need a refresher,  
-see: [https://github.com/dwyl/**learn-environment-variables**](https://github.com/dwyl/learn-environment-variables)  
-> Also, if you're wondering what that `JWT_SECRET` *Environment Variables* is for,  
-see: [https://github.com/dwyl/**learn-json-web-tokens**](https://github.com/dwyl/learn-json-web-tokens)
 
 ### 4. Create Your (Custom) Handler Function
 
@@ -130,17 +137,17 @@ which is your custom logic for GitHub auth enabled app.
 
 To run the *example* you will need an extra environment variable:
 ```sh
-GITHUB_CLIENT_ID=YourGitHubAppClientId
+BASE_URL=http://localhost:8000 # same as Authorized JavaScript Origin
+GITHUB_CLIENT_ID=YourGitHubClientID
 GITHUB_CLIENT_SECRET=SuperSecret
-BASE_URL=http://localhost:8000
-REDIRECT_URL=/githubauth
-JWT_SECRET=EverythingisAwesome
+GITHUB_AUTH_REDIRECT_URL=/githubauth
 PORT=8000
+# Optionally (If you are using hapi-auth-jwt2)
+JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
 ```
 
-If you would like to help *contribute* to this module,
-please get in touch:
-[![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+> Also, if you're wondering what that `JWT_SECRET` *Environment Variables* is for,  
+see: [https://github.com/dwyl/**learn-json-web-tokens**](https://github.com/dwyl/learn-json-web-tokens)
 
 
 ## Background Reading
