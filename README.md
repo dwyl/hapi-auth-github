@@ -59,8 +59,13 @@ GITHUB_CLIENT_ID=YourGitHubClientID
 GITHUB_CLIENT_SECRET=SuperSecret
 GITHUB_AUTH_REDIRECT_URL=/githubauth
 PORT=8000
-# Optionally (If you are using hapi-auth-jwt2)
+
+# Optionals
+# (If you are using hapi-auth-jwt2)
 JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
+# If you are using custom instance of GitHub
+GITHUB_HOSTNAME=github.mycompany.com
+GITHUB_API_HOSTNAME=api.github.mycompany.com
 ```
 #### Notes on Environment Variables:
 
@@ -68,7 +73,7 @@ JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
 Environment Variables or need a refresher,  
 see: [https://github.com/dwyl/**learn-environment-variables**](https://github.com/dwyl/learn-environment-variables)  
 
-We named/exportd the 3 variables prefixed with `GITHUB_`
+We named/exported the 5 variables prefixed with `GITHUB_`
 to _distinguish_ them from other services you may be using which
 may also have an environment variable named `CLIENT_ID`...
 
@@ -81,6 +86,9 @@ send the initial OAuth2 `code` to _confirm_ your application is *real*.
 Make *sure* that the url is *identical* to the one you defined when
 setting up your app on GitHub. e.g: http://localhost:8000/githubauth
 
+The `GITHUB_HOSTNAME` and `GITHUB_API_HOSTNAME` let's you define
+other instance of GitHub e.g. enterprise. Defaults are `github.com`
+and `api.github.com` accordingly.
 
 ### 4. Create Your (Custom) Handler Function
 

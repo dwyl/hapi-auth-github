@@ -1,5 +1,6 @@
 var test = require('tape');
 var nock = require('nock');
+var fs = require('fs');
 var dir  = __dirname.split('/')[__dirname.split('/').length-1];
 var file = dir + __filename.replace(__dirname, '') + " > ";
 
@@ -33,10 +34,8 @@ test(file+'GET /githubauth?code=oauth2codehere', function(t) {
 
 test(file+'MOCK GitHub OAuth2 Flow /githubauth?code=mockcode', function(t) {
   // google oauth2 token request url:
-  var fs = require('fs');
   var token_fixture = fs.readFileSync('./test/fixtures/sample_access_token.json');
-  var nock = require('nock');
-  var scope = nock('https://github.com')
+  nock('https://github.com')
             .persist() // https://github.com/pgte/nock#persist
             .post('/login/oauth/access_token')
             .reply(200, token_fixture);
@@ -44,10 +43,42 @@ test(file+'MOCK GitHub OAuth2 Flow /githubauth?code=mockcode', function(t) {
   // see: http://git.io/v4nTR for google plus api url
   // https://www.googleapis.com/plus/v1/people/{userId}
   var sample_profile = fs.readFileSync('./test/fixtures/sample_profile.json');
-  var nock = require('nock');
-  var scope = nock('https://api.github.com')
+  nock('https://api.github.com')
             .get('/user')
             .reply(200, sample_profile);
+
+  var options = {
+    method: "GET",
+    url: "/githubauth?code=mockcode"
+  };
+  server.inject(options, function(response) {
+    t.equal(response.statusCode, 200, "Profile retrieved (Mock)");
+    var expected = 'Hello Alex, You Logged in Using GitHub!';
+    t.equal(response.payload, expected, "Got: " + expected + " (as expected)");
+    // console.log(' - - - - - - - - - - - - - - - - - -');
+    // console.log(response.payload);
+    // console.log(' - - - - - - - - - - - - - - - - - -');
+    server.stop(t.end);
+  });
+});
+
+test(file+'MOCK GitHub OAuth2 Flow /githubauth?code=mockcode with custom GitHub URLs', function(t) {
+  process.env.GITHUB_HOSTNAME = 'github.at-my-custom.host';
+  process.env.GITHUB_API_HOSTNAME = 'api.github.at-my-custom.host';
+
+  // google oauth2 token request url:
+  var token_fixture = fs.readFileSync('./test/fixtures/sample_access_token.json');
+  nock('https://' + process.env.GITHUB_HOSTNAME)
+    .persist() // https://github.com/pgte/nock#persist
+    .post('/login/oauth/access_token')
+    .reply(200, token_fixture);
+
+  // see: http://git.io/v4nTR for google plus api url
+  // https://www.googleapis.com/plus/v1/people/{userId}
+  var sample_profile = fs.readFileSync('./test/fixtures/sample_profile.json');
+  nock('https://' + process.env.GITHUB_API_HOSTNAME)
+    .get('/user')
+    .reply(200, sample_profile);
 
   var options = {
     method: "GET",
