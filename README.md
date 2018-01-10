@@ -20,7 +20,7 @@ we have *de-coupled* our OAuth code into this re-useable Hapi Plugin.
 please get in touch:
 [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## *What*?
+## *What*?
 
 An easy-to-use Hapi.js plugin that gives you GitHub OAuth Authentication  
 in a few simple steps and has *human-readable*, maintained code.
@@ -67,7 +67,8 @@ JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
 GITHUB_HOSTNAME=github.mycompany.com
 GITHUB_API_HOSTNAME=api.github.mycompany.com
 ```
-#### Notes on Environment Variables:
+
+#### Notes on Environment Variables:
 
 > Tip: If you (*or anyone on your team*) are new to
 Environment Variables or need a refresher,  
