@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maixiaojie/hapi-auth-github.git"
+    "url": "git+https://github.com/maixiaojie/hapi-github-auth.git"
   },
   "keywords": [
     "GitHub",
@@ -26,9 +26,9 @@
   "author": "tracywyj@gmail.com",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/maixiaojie/hapi-auth-github/issues"
+    "url": "https://github.com/maixiaojie/hapi-github-auth/issues"
   },
-  "homepage": "https://github.com/maixiaojie/hapi-auth-github#readme",
+  "homepage": "https://github.com/maixiaojie/hapi-github-auth#readme",
   "devDependencies": {
     "env2": "^2.2.2",
     "hapi": "^18.1.0"
