@@ -1,4 +1,4 @@
-# `hapi-auth-github` makes it *easy* to <img width="300" alt="login with github" src="https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png">
+# `hapi-github-auth` makes it *easy* to <img width="300" alt="login with github" src="https://cloud.githubusercontent.com/assets/194400/11214293/4e309bf2-8d38-11e5-8d46-b347b2bd242e.png">
 
 **GitHub Authentication** Plugin for Hapi.js Apps with ***detailed documentation***.
 
@@ -11,7 +11,6 @@
 ## Why?
 
 We use *GitHub* for ***all*** our coding projects and are building
-a tool to keep track of all them: https://github.com/dwyl/tudo
 
 Given that other people will have projects that need GitHub Authentication,  
 we have *de-coupled* our OAuth code into this re-useable Hapi Plugin.
